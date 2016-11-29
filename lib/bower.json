@@ -1,0 +1,23 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/nss-evening-cohort-04/pinteresting-high-five",
+  "authors": [
+    "Dani Adkins <danirenaeadkins12@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "boards": {
+    "board0": {
+      "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
+      "title": "Puppies"
+    },
+    "board1": {
+      "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
+      "title": "Kittens"
+    },
+    "board2": {
+      "uid": "",
+      "title": "Dinosaurs"
+    }
+  },
+  "users": {
+    "user0": {
+      "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
+      "username": "a"
+    },
+    "user1": {
+      "uid": "",
+      "username": ""
+    },
+    "user2": {
+      "uid": "",
+      "username": ""
+    }
+  },
+
+  "pins": {
+    "pin0": {
+      "uid": "",
+      "boardid": "board2",
+      "url": "",
+      "title": "T-rex"
+    },
+    "pin1": {
+      "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
+      "boardid": "board1",
+      "url": "",
+      "title": "Bengal kitty"
+    },
+    "pin2": {
+      "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
+      "boardid": "board0",
+      "url": "",
+      "title": "Goldendoodle"
+    }
+  }
+}
