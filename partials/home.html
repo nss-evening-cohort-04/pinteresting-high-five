@@ -1,4 +1,29 @@
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default"><i class="fa fa-search"></i></button>
+      </span>
+        <input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
+    </div>
+  </div>
+</div>
 
-<div><h3>YOU DID THINGS!!!</h3></div>
+<h3>Pins</h3>
+<div ng-repeat="pin in pins">
+  <div class="panel panel-default">
+      <div class="panel-body">
+      <div class="row">{{pin.title}}</div>
+      <div class="row" ><img style="height: 100px; width:100px;" ng-src={{pin.url}}/></img></div>
+      <div class="row">{{pin.boardid}}</div>
+      <div class="row">{{pin.uid}}</div>
 
-<div ng-repeat=""
+
+        <!--   <div class="col-xs-1"><input type="" name="" ng-model="pins"></div> -->
+         <!--  <div class="col-xs-9"><a href="#/items/view/{{item.id}}">{{item.task}}</a></div>
+          <div class="col-xs-1">{{item.assignedTo}}</div>
+          <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button></div> -->
+      </div>
+  </div>
+</div>
+
