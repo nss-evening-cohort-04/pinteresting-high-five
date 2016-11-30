@@ -70,7 +70,7 @@ app.factory('BoardFactory', function($q, $http, FIREBASE_CONFIG){
 //     return $q((resolve, reject)=>{
 //       $http.put(`${FIREBASE_CONFIG.databaseURL}/Boards/${editBoard.id}.json`, 
 //         JSON.stringify({
-//         city: editBoard.city,
+//           city: editBoard.city,
 //           email: editBoard.email,
 //           firstName: editBoard.firstName,
 //           lastName: editBoard.lastName,
