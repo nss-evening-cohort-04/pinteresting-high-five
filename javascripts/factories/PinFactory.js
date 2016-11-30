@@ -3,14 +3,14 @@
 app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
   var getPinList = function(userId){
     return $q((resolve,reject)=>{
-      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="uid"&equalTo="${userId}"`)
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins.json?orderBy="uid"`)
         .success(function(response){
           let pins = [];
           Object.keys(response).forEach(function(key){
             response[key].id = key;
-            items.push(response[key]);
+            pins.push(response[key]);
           });
-          resolve(items);
+          resolve(pins);
         })
         .error(function(errorResponse){
           reject(errorResponse);
@@ -18,28 +18,28 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
     });
   };
 
-  //   var postNewPin = function(newItem){
-  //   return $q((resolve, reject)=>{
-  //     $http.post(`${FIREBASE_CONFIG.databaseURL}/items.json`,
-  //         JSON.stringify({
-  //         assignedTo: newItem.assignedTo,
-  //         isCompleted: newItem.isCompleted,
-  //         task: newItem.task,
-  //         uid: newItem.uid
-  //       })
-  //     )
-  //       .success(function(postResponse){
-  //         resolve(postResponse);
-  //       })
-  //       .error(function(postError){
-  //         reject(postError);
-  //       });
-  //   });
-  // };
+    var postNewPin = function(newPin){
+    return $q((resolve, reject)=>{
+      $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`,
+          JSON.stringify({
+          assignedTo: newItem.assignedTo,
+          isCompleted: newItem.isCompleted,
+          task: newItem.task,
+          uid: newItem.uid
+        })
+      )
+        .success(function(postResponse){
+          resolve(postResponse);
+        })
+        .error(function(postError){
+          reject(postError);
+        });
+    });
+  };
 
   // var deletePin = function(itemId){
   //   return $q((resolve, reject)=>{
-  //     $http.delete(`${FIREBASE_CONFIG.databaseURL}/items/${itemId}.json`)
+  //     $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${itemId}.json`)
   //     .success(function(deleteResponse){
   //       resolve(deleteResponse);
   //     })
@@ -81,5 +81,5 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
  //    });
  //  };
 
-return {getPinList:getPinList, postNewPin:postNewPin, deletePin:deletePin, getSinglePin:getSinglePin, editPin:editPin};
+return {getPinList:getPinList, postNewPin:postNewPin};
 });
