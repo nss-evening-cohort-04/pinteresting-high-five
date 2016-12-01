@@ -30,9 +30,6 @@ $scope.deletePin = function(pinId){ //passed this in on click here and in HTML -
 };
 //get single pin function?
 
-$scope.revealNewPin = function(){
-  $scope.newPinRevealer = true;
-}
 
 // $scope.newPin = {};
 
