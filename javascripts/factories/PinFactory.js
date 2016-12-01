@@ -81,5 +81,5 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
     });
   };
 
-return {getPinList:getPinList, postNewPin:postNewPin};
+return {getPinList:getPinList, postNewPin:postNewPin, deletePin:deletePin, getSinglePin:getSinglePin, editPin:editPin};
 });
