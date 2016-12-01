@@ -1,6 +1,6 @@
 "use strict";
  
-app.controller("BoardCtrl", function($scope, $rootScope, BoardFactory){
+app.controller("BoardCtrl", function($scope, $rootScope, $location, BoardFactory){
 	console.log("Hello, this is BoardCtrl.js");
 
 	$scope.boards = [];
@@ -22,6 +22,24 @@ app.controller("BoardCtrl", function($scope, $rootScope, BoardFactory){
 			getBoards(); //this refreshes the DOM after you've deleted
 		});
 	};
+
+	$scope.revealNewBoard = function () {
+		$scope.newBoardRevealer = true;
+	};
+
+	$scope.newBoard = {}; 
+
+	$scope.addNewBoard = function() {
+		$scope.newBoard.uid = $rootScope.user.uid;
+		BoardFactory.postNewBoard($scope.newBoard).then(function(boardId){
+			getBoards()
+			$scope.newBoard = {}; //clears the values after you submit new board			
+			$location.url("/my-boards"); //will send the user to the url you specified
+		});
+		
+		$scope.newBoardRevealer = false;
+	};
+
 
 
 /* The inputChange function is for editing boards, will handle later
