@@ -18,10 +18,28 @@
 <div ng-repeat="board in boards">
     <div class="panel panel-default">    
         <div class="panel-body">
-            <div class="col-xs-9"><a href="#/my-boards/{{board.id}}">{{board.title}}</a></div>
+            <div class="col-xs-9"><a href="#/board/{{board.id}}">{{board.title}}</a></div>
             <div class="col-xs-1">
-                <button class="btn btn-danger fa fa-trash-o" ng-click="deleteBoard(board.id)"></button>
+                <button class="btn btn-lg btn-danger fa fa-trash-o" ng-click="deleteBoard(board.id)"></button>
             </div>
         </div>
     </div>    
+</div>
+
+<div>
+    <div>
+        <button class="btn btn-warning" ng-click="revealNewBoard()"> + Create New Board + </button>
+    
+
+        <div ng-show="newBoardRevealer">
+            <h3>Create New Board</h3>
+            <form>
+                <div class="form-group">
+                <label>New Board Name</label>
+                <input type="text" class="form-control" placeholder="New Board Name" ng-model="newBoard.title">
+                <button class="btn btn-info" ng-click="addNewBoard()">Add New Board</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

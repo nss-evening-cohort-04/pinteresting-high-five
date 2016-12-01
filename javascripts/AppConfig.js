@@ -52,6 +52,11 @@ app.config(function($routeProvider){ //routeProvider is angular method that does
       controller: 'BoardCtrl',
       resolve: {isAuth} // if isAuth is true then load this controller/partial
     })
+    .when('/board/:id', {
+      templateUrl: 'partials/board.html', 
+      controller: 'SingleBoardCtrl',
+      resolve: {isAuth}
+    })
     .when('/logout', {
       templateUrl: 'partials/auth.html',
       controller: 'AuthCtrl',
