@@ -41,7 +41,7 @@ app.factory('BoardFactory', function($q, $http, FIREBASE_CONFIG){
 
   var deleteBoard =  function(boardId){
     return $q((resolve, reject) => {
-      $http.delete(`${FIREBASE_CONFIG.databaseURL}/my-boards/${boardId}.json`)
+      $http.delete(`${FIREBASE_CONFIG.databaseURL}/boards/${boardId}.json`)
       .success(function(deleteResponse){
         console.log("success")
         resolve(deleteResponse);
