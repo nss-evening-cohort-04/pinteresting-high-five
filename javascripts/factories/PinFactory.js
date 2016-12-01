@@ -22,10 +22,10 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
     return $q((resolve, reject)=>{
       $http.post(`${FIREBASE_CONFIG.databaseURL}/pins.json`,
           JSON.stringify({
-          assignedTo: newItem.assignedTo,
-          isCompleted: newItem.isCompleted,
-          task: newItem.task,
-          uid: newItem.uid
+          uid: newPin.uid,
+          boardid: newPin.boardid,
+          url: newPin.url,
+          title: newPin.title
         })
       )
         .success(function(postResponse){
@@ -37,49 +37,49 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
     });
   };
 
-  // var deletePin = function(itemId){
-  //   return $q((resolve, reject)=>{
-  //     $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${itemId}.json`)
-  //     .success(function(deleteResponse){
-  //       resolve(deleteResponse);
-  //     })
-  //     .error(function(deleteError){
-  //       reject(deleteError);
-  //     });
-  //   });
-  // };
+  var deletePin = function(pinId){
+    return $q((resolve, reject)=>{
+      $http.delete(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+      .success(function(deleteResponse){
+        resolve(deleteResponse);
+      })
+      .error(function(deleteError){
+        reject(deleteError);
+      });
+    });
+  };
 
 
-  // var getSinglePin = function(itemId){
-  //   return $q((resolve, reject)=>{
-  //     $http.get(`${FIREBASE_CONFIG.databaseURL}/items/${itemId}.json`)
-  //     .success(function(getSingleResponse){
-  //       resolve(getSingleResponse);
-  //     })
-  //     .error(function(getSingleError){
-  //       reject(getSingleError);
-  //     });
-  //   });
-  // };
+  var getSinglePin = function(pinId){
+    return $q((resolve, reject)=>{
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/pins/${pinId}.json`)
+      .success(function(getSingleResponse){
+        resolve(getSingleResponse);
+      })
+      .error(function(getSingleError){
+        reject(getSingleError);
+      });
+    });
+  };
 
- // var editPin = function(editItem){
- //    return $q((resolve, reject)=>{
- //      $http.put(`${FIREBASE_CONFIG.databaseURL}/items/${editItem.id}.json`,
- //          JSON.stringify({
- //          assignedTo: editItem.assignedTo,
- //          isCompleted: editItem.isCompleted,
- //          task: editItem.task,
- //          uid: editItem.uid
- //        })
- //      )
- //        .success(function(editResponse){
- //          resolve(editResponse);
- //        })
- //        .error(function(editError){
- //          reject(editError);
- //        });
- //    });
- //  };
+ var editPin = function(editPin){
+    return $q((resolve, reject)=>{
+      $http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${editPin.id}.json`,
+          JSON.stringify({
+          uid: editPin.uid,
+          boardid: editPin.boardid,
+          url: editPin.url,
+          title: editPin.title
+        })
+      )
+        .success(function(editResponse){
+          resolve(editResponse);
+        })
+        .error(function(editError){
+          reject(editError);
+        });
+    });
+  };
 
 return {getPinList:getPinList, postNewPin:postNewPin};
 });
