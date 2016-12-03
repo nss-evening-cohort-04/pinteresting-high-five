@@ -23,7 +23,7 @@ app.controller("SingleBoardCtrl", function($scope, $rootScope, $location, $route
 	$scope.addNewPin = function() {
 	        $scope.newPin.uid = $rootScope.user.uid;
 	        PinFactory.postNewPin($scope.newPin).then(function(pinId) {
-	            $location.url("/board/:id");   
+	            $location.url("/board/:id");
 	            $scope.newPin = {};
 	      });
 	  };

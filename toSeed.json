@@ -38,13 +38,13 @@
     "pin1": {
       "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
       "boardid": "board1",
-      "url": "",
+      "url": "/images/bengalkitty.jpg",
       "title": "Bengal kitty"
     },
     "pin2": {
       "uid": "sHRkRdKjUYhGynFBf3uvo0DJ0ws1",
       "boardid": "board0",
-      "url": "",
+      "url": "/images/goldendoodle.jpg",
       "title": "Goldendoodle"
     }
   }
