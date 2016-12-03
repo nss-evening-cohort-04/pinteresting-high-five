@@ -11,10 +11,11 @@
 
 <h3>Pins</h3>
 <div ng-repeat="pin in pins">
+  <!-- <img src={{p=}} alt=""> -->
   <div class="panel panel-default">
       <div class="panel-body">
       <div class="row">{{pin.title}}</div>
-      <div class="row" ><img style="height: 100px; width:100px;" ng-src={{pin.url}}/></img></div>
+      <div class="row" ><img style="height: 100px; width:100px;" src="{{pin.url}}"></img></div>
       <div class="row">{{pin.boardid}}</div>
          <div class="col-xs-1"><button class="btn btn-danger fa fa-trash-o" ng-click="deletePin(pin.id)"></button></div>
       </div>
